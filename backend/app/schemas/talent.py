@@ -1,16 +1,21 @@
-from pydantic import BaseModel, Field
+# schemas/talent.py
+from pydantic import BaseModel
 from typing import Optional
 
 class TalentBase(BaseModel):
-    talent_id: str = Field(min_length=12, max_length=12)
-    first_name: str
-    last_name: str
-    email: Optional[str] = None
-    phone_number: Optional[str] = None
-    portfolio_url: Optional[str] = None
+    major: Optional[str]
+    skills: Optional[str]
+    certifications: Optional[str]
+    portfolio_url: Optional[str]
+
+
 class TalentCreate(TalentBase):
-    pass
+    student_code: str
+
+
 class TalentResponse(TalentBase):
-    talent_id: str
+    user_id: int
+    student_code: Optional[str]
+
     class Config:
-        orm_mode = True
+        from_attributes = True

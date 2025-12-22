@@ -1,13 +1,9 @@
-from sqlalchemy import Column, String, Text, Integer, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey
 from app.database import Base
 
 class Mentor(Base):
     __tablename__ = "mentors"
-
-    mentor_id = Column(String(12), primary_key=True)
-    user_id = Column(String(12), ForeignKey("users.user_id"))
-    status = Column(Text)
-    expertise = Column(Text)
-    description = Column(Text)
+    user_id = Column(Integer, ForeignKey("users.user_id", ondelete="CASCADE"), primary_key=True)
+    expertise = Column(String)
     years_experience = Column(Integer)
-    
+    status = Column(String)

@@ -1,15 +1,22 @@
-from pydantic import BaseModel, Field 
+# schemas/company.py
+from pydantic import BaseModel
 from typing import Optional
+
 class CompanyBase(BaseModel):
-    company_id: str
     company_name: str
-    address: Optional[str] = None
-    phone_number: Optional[str] = None
+    department: Optional[str] = None
+    description: Optional[str] = None
     website: Optional[str] = None
+
+
 class CompanyCreate(CompanyBase):
     pass
+
+
 class CompanyResponse(CompanyBase):
     company_id: str
-    verified: Optional[bool] = None
+    user_id: int
+    verified: bool
+
     class Config:
-        orm_mode = True
+        from_attributes = True

@@ -1,21 +1,27 @@
-from pydantic import BaseModel, Field
+# schemas/user.py
+from pydantic import BaseModel
+from datetime import datetime
 from typing import Optional
 
-class Userbase (BaseModel):
-    user_id: str = Field(min_length=12, max_length=12)
+class UserBase(BaseModel):
     user_name: str
-    email: str 
     full_name: Optional[str] = None
     phone_number: Optional[str] = None
-    role: Optional[str] = None
-    avatar_url: Optional[str] = None
 
-class User_create (Userbase):
-    password: str
 
-class User_response (Userbase):
-    created_at: Optional[str] = None
-    updated_at: Optional[str] = None
+class UserCreate(UserBase):
+    password: str   # client gửi password thường
 
-class Config:
-    orm_mode = True
+
+class UserUpdate(BaseModel):
+    full_name: Optional[str]
+    phone_number: Optional[str]
+    password : Optional[str]
+
+
+class UserResponse(UserBase):
+    user_id: int
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
