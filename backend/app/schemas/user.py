@@ -16,7 +16,7 @@ class UserCreate(UserBase):
 class UserUpdate(BaseModel):
     full_name: Optional[str]
     phone_number: Optional[str]
-    password : Optional[str]
+    password: Optional[str]
 
 
 class UserResponse(UserBase):
