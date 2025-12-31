@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, ForeignKey, Boolean, Date, String, text
 from app.database import Base
+from sqlalchemy.orm import relationship
 
 class ProjectTeam(Base):
     __tablename__ = "project_team"
@@ -8,3 +9,6 @@ class ProjectTeam(Base):
     is_leader = Column(Boolean, default=False)
     joined_at = Column(Date, server_default=text("CURRENT_DATE"))
     status = Column(String(50), default='active')
+
+    project = relationship("Project", back_populates="team")
+    talent = relationship("Talent", back_populates="projects")

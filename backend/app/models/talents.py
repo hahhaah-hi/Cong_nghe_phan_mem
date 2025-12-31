@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from app.database import Base
+from sqlalchemy.orm import relationship
+
 
 class Talent(Base):
     __tablename__ = "talents"
@@ -9,3 +11,7 @@ class Talent(Base):
     skills = Column(String)
     certifications = Column(String)
     portfolio_url = Column(String)
+
+    user = relationship("User", back_populates="talent")
+    projects = relationship("ProjectTeam", back_populates="talent")
+    tasks_assigned = relationship("Task", back_populates="assigned_to_user")

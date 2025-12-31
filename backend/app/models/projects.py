@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, ForeignKey, CHAR
 from app.database import Base
+from sqlalchemy.orm import relationship
 
 class Project(Base):
     __tablename__ = "projects"
@@ -10,3 +11,9 @@ class Project(Base):
     description = Column(String)
     status = Column(String(50), default='assigned')
     deadline = Column(Date)
+
+    company = relationship("Company", back_populates="projects")
+    mentor = relationship("Mentor", back_populates="projects")
+    team = relationship("ProjectTeam", back_populates="project")
+    tasks = relationship("Task", back_populates="project")
+    reports = relationship("Report", back_populates="project")

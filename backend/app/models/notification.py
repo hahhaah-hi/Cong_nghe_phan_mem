@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, TIMESTAMP, text
 from app.database import Base
+from sqlalchemy.orm import relationship
 
 
 class Notification(Base):
@@ -9,3 +10,5 @@ class Notification(Base):
     title = Column(String, nullable=False)
     messages = Column(String)
     created_at = Column(TIMESTAMP, server_default=text("NOW()"))
+
+    user = relationship("User", back_populates="notifications")

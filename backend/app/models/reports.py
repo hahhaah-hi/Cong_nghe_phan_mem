@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, TIMESTAMP, text
 from app.database import Base
+from sqlalchemy.orm import relationship
 
 class Report(Base):
     __tablename__ = "reports"
@@ -9,3 +10,6 @@ class Report(Base):
     report_type = Column(String(50))
     content = Column(String)
     created_at = Column(TIMESTAMP, server_default=text("NOW()"))
+
+    project = relationship("Project", back_populates="reports")
+    mentor = relationship("Mentor", back_populates="reports_created")

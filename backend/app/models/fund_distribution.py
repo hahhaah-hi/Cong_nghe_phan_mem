@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, ForeignKey, Numeric, String, TIMESTAMP, text
 from app.database import Base
+from sqlalchemy.orm import relationship
 
 class FundDistribution(Base):
     __tablename__ = "fund_distribution"

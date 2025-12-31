@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String , TIMESTAMP, text
 from app.database import Base
-
+from sqlalchemy.orm import relationship
 
 class User(Base):
     __tablename__ = "users"
@@ -12,3 +12,10 @@ class User(Base):
     phone_number = Column(String(15))
     created_at = Column(TIMESTAMP, server_default=text("NOW()"))
     updated_at = Column(TIMESTAMP, server_default=text("NOW()"), onupdate=text("NOW()"))
+# quan hệ
+    roles = relationship("UserRole", back_populates="user", cascade="all, delete")
+    company = relationship("Company", back_populates="user", uselist=False)
+    talent = relationship("Talent", back_populates="user", uselist=False)
+    mentor = relationship("Mentor", back_populates="user", uselist=False)
+
+    notifications = relationship("Notification", back_populates="user", cascade="all, delete")
