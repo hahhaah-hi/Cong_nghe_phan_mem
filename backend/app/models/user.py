@@ -14,7 +14,7 @@ class User(Base):
     updated_at = Column(TIMESTAMP, server_default=text("NOW()"), onupdate=text("NOW()"))
 # quan hệ
     roles = relationship("UserRole", back_populates="user", cascade="all, delete")
-    company = relationship("Company", back_populates="user", uselist=False)
+    companies = relationship("Company", back_populates="user", uselist=False)
     talent = relationship("Talent", back_populates="user", uselist=False)
     mentor = relationship("Mentor", back_populates="user", uselist=False)
 

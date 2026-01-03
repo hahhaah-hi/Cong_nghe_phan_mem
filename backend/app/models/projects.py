@@ -12,7 +12,7 @@ class Project(Base):
     status = Column(String(50), default='assigned')
     deadline = Column(Date)
 
-    company = relationship("Company", back_populates="projects")
+    companies = relationship("Company", back_populates="projects")
     mentor = relationship("Mentor", back_populates="projects")
     team = relationship("ProjectTeam", back_populates="project")
     tasks = relationship("Task", back_populates="project")

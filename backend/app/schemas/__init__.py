@@ -1,6 +1,6 @@
 
 from app.schemas.company import CompanyBase, CompanyCreate, CompanyResponse
-from app.schemas.talent import TalentBase, TalentCreate, TalentResponse
+from app.schemas.talent import TalentBase, TalentUpdate, TalentResponse
 from app.schemas.roles import RoleBase, RoleResponse
 from app.schemas.user import UserBase, UserCreate, UserResponse, UserUpdate
 from app.schemas.mentors import MentorBase, MentorResponse

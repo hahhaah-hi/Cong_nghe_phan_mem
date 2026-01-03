@@ -15,3 +15,4 @@ class Token(BaseModel):
 
 class Token_data(BaseModel):
     user_name: Optional[str] =None
+    role_name: list[str]

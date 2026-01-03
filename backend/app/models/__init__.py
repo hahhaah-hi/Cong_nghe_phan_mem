@@ -10,6 +10,5 @@ from app.models.tasks import Task
 from app.models.payments import Payment
 from app.models.fund_distribution import FundDistribution
 from app.models.notification import Notification
-from app.models.company import Company
+from app.models.companies import Company
 from app.models.reports import Report
-from sqlalchemy.orm import relationship

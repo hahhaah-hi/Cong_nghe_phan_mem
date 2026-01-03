@@ -9,13 +9,13 @@ class TalentBase(BaseModel):
     portfolio_url: Optional[str]
 
 
-class TalentCreate(TalentBase):
+class TalentUpdate(TalentBase):
     student_code: str
 
 
 class TalentResponse(TalentBase):
     user_id: int
     student_code: Optional[str]
-
+    
     class Config:
         from_attributes = True
