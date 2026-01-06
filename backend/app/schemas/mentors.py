@@ -7,7 +7,6 @@ class MentorBase(BaseModel):
     years_experience: Optional[int]
     status: Optional[str]
 
-
 class MentorResponse(MentorBase):
     user_id: int
 

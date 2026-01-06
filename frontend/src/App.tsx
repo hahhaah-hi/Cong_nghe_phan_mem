@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-const App: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+function App() {
   return (
-    <div>
-      {isLoggedIn ? <Dashboard /> : <Login onLogin={() => setIsLoggedIn(true)} />}
+    <div className="App">
+      heloo oo
     </div>
   );
-};
+}
 
 export default App;

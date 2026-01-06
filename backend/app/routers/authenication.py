@@ -12,7 +12,7 @@ router = APIRouter(
 @router.post('/register' , status_code = status.HTTP_201_CREATED, response_model=schemas.UserResponse)
 def register(request: schemas.UserCreate, db: Session = Depends(get_db)):
    # mã hóa password trước khi lưu vào db
-    new_user = models.User(user_name=request.user_name ,full_name=request.full_name,phone_number=request.phone_number, 
+    new_user = models.User(user_name=request.user_name ,full_name=request.full_name,phone_number=request.phone_number,
                            password_hash=hashing.Hash.bcrypt(request.password))
     #check xem user_name đã tồn tại chưa neu chua thi tao moi
     if db.query(models.User).filter(models.User.user_name == request.user_name).first():

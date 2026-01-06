@@ -16,11 +16,32 @@ def create_access_token(data:dict):
 def verify_token(token: str,credential_exception):
     try:
         payload = jwt.decode(token,SECRET_KEY, algorithms=[ALGORITHM])
-        username:str=payload.get('sub')
-        roles:str=payload.get('role')
-        if username is None or roles is None:
+        user_name:str=payload.get('sub')
+        roles_name:list[str]=payload.get('role')
+
+        if user_name is None or roles_name is None:
             raise credential_exception
-        token_data = schemas.Token_data(user_name=username, role_name=roles)
+        
+        token_data = schemas.Token_data(user_name=user_name, role_name=roles_name)
         return token_data
+    
     except JWTError:
         raise credential_exception
+
+# def verify_token(token: str, credential_exception):
+#     try:
+#         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+
+#         username: str = payload.get("sub")
+#         roles: list[str] = payload.get("role")
+
+#         if username is None or roles is None:
+#             raise credential_exception
+
+#         return schemas.CurrentUser(
+#             user_name=username,
+#             roles=roles
+#         )
+
+#     except JWTError:
+#         raise credential_exception
