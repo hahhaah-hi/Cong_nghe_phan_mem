@@ -20,9 +20,8 @@ def get_me(current_user:schemas.UserBase =Depends(oauth2.get_current_user)):
         "user_name": current_user.user_name,
         "full_name": current_user.full_name,
         "phone_number":current_user.phone_number,
-        "roles": [ur.role.role_name for ur in current_user.roles],
+        "role_name": [ur.role.role_name for ur in current_user.roles],
         "created_at":current_user.created_at
-
     }
    
 
@@ -43,7 +42,7 @@ def update_user(request:schemas.UserUpdate, db: Session = Depends(get_db),curren
 
 @router.get('/user/profile/talent/{id}', response_model=schemas.TalentResponse)
 def get_talent_(id: int, db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
-    # Query từ Talent và Join sang User
+    
     talent_profile = db.query(models.Talent).options(
         joinedload(models.Talent.user) 
     ).filter(models.Talent.user_id == id).first()

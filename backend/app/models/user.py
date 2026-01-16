@@ -19,3 +19,7 @@ class User(Base):
     mentor = relationship("Mentor", back_populates="user", uselist=False)
 
     notifications = relationship("Notification", back_populates="user", cascade="all, delete")
+
+    @property
+    def role_name(self):
+        return [ur.role.role_name for ur in self.roles]

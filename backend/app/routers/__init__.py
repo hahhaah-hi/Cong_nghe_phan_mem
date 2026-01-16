@@ -5,3 +5,6 @@ from app.routers import authenication
 from app.routers import roles
 from app.routers import company 
 from app.routers import oauth2
+from app.routers import project
+from app.routers import profile
+from app.routers import talent

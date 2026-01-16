@@ -13,6 +13,11 @@ class ProjectCreate(ProjectBase):
     company_id: str
     mentor_user_id: int
 
+class ProjectUpdate(BaseModel):
+     title: Optional[str]
+     description: Optional[str]
+     status:Optional[str]
+     deadline:Optional[date]
 
 class ProjectResponse(ProjectBase):
     project_id: int

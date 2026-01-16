@@ -28,20 +28,3 @@ def verify_token(token: str,credential_exception):
     except JWTError:
         raise credential_exception
 
-# def verify_token(token: str, credential_exception):
-#     try:
-#         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-
-#         username: str = payload.get("sub")
-#         roles: list[str] = payload.get("role")
-
-#         if username is None or roles is None:
-#             raise credential_exception
-
-#         return schemas.CurrentUser(
-#             user_name=username,
-#             roles=roles
-#         )
-
-#     except JWTError:
-#         raise credential_exception

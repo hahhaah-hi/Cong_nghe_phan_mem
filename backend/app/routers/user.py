@@ -42,7 +42,7 @@ def get_user(id,  db: Session = Depends(get_db),current_user: schemas.UserBase=D
 
 # cap nhat user
 @router.put('/user/{id}', status_code=status.HTTP_202_ACCEPTED, tags=["Users"])
-def update_user(id, request:schemas.UserUpdate, db: Session = Depends(get_db)):
+def update_user(id, request:schemas.UserUpdate, db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     user=db.query(models.User).filter(models.User.user_id == id)
     if not user.first():
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
@@ -58,7 +58,7 @@ def update_user(id, request:schemas.UserUpdate, db: Session = Depends(get_db)):
 
 # xoa user
 @router.delete('/user/{id}', status_code=200, tags=["Users"])
-def delete_user(id:int, db: Session = Depends(get_db)):
+def delete_user(id:int, db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     user = db.query(models.User).filter(models.User.user_id == id)
 
     if not user.first():

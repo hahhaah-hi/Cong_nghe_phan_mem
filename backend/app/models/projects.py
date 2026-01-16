@@ -9,7 +9,7 @@ class Project(Base):
     mentor_user_id = Column(Integer, ForeignKey("mentors.user_id"))
     title = Column(String(255), nullable=False)
     description = Column(String)
-    status = Column(String(50), default='assigned')
+    status = Column(String(50), default='pending')
     deadline = Column(Date)
 
     companies = relationship("Company", back_populates="projects")

@@ -28,6 +28,8 @@ def get_current_user(data:str = Depends(oauth2_scheme), db:Session=Depends(get_d
     if user is None:
         raise credential_exception
 
+    # company= db.query(models.Company).filter(models.Company.company_id==token_data.company_id).first() 
+    # user.company_id = company.company_id if company else None
     return user
 
 
