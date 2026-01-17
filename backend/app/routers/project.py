@@ -13,16 +13,10 @@ def create_project( request: schemas.ProjectCreate, db: Session = Depends(get_db
 
     # 2. Check mentor tồn tại
     mentor = (
-        db.query(models.User)
-        .join(models.UserRole)
-        .join(models.Role)
-        .filter(
-            models.User.user_id == request.mentor_user_id,
-            models.Role.role_name == "mentor"
-        )
+        db.query(models.User).join(models.UserRole).join(models.Role)
+        .filter(models.User.user_id == request.mentor_user_id,models.Role.role_name == "mentor")
         .first()
     )
-
     if not mentor:
         raise HTTPException(400, "Mentor not found or invalid")
 

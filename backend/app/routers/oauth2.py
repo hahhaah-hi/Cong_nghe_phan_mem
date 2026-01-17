@@ -19,17 +19,14 @@ def get_current_user(data:str = Depends(oauth2_scheme), db:Session=Depends(get_d
                                          detail='could not validate credentials',
                                          headers={"WWW-Authenticate":"bearer"})
 
-    token_data = token.verify_token(data, credential_exception)
+    token_data = token.verify_token(data , credential_exception)
 
     user = db.query(models.User).filter(
-        models.User.user_name == token_data.user_name
+        models.User.user_id == token_data.user_id
     ).first()
 
     if user is None:
         raise credential_exception
-
-    # company= db.query(models.Company).filter(models.Company.company_id==token_data.company_id).first() 
-    # user.company_id = company.company_id if company else None
     return user
 
 

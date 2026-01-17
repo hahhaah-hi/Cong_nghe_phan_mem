@@ -14,5 +14,6 @@ class Token(BaseModel):
     token_type: str
 
 class Token_data(BaseModel):
+    user_id : int
     user_name: Optional[str]=None
     role_name: list[str]

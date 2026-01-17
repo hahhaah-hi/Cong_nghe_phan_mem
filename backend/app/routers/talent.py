@@ -10,3 +10,24 @@ router=APIRouter( tags=['Talent'])
 def list_project(db:Session=Depends(get_db), current_user:schemas.UserBase=Depends(oauth2.require_role('talent'))):
     project=db.query(models.Project).filter(models.Project.status=='approved').all()
     return project 
+
+
+@router.post('/talent/project/{id}/join')
+def join_project(id:int,db:Session=Depends(get_db), current_user:schemas.UserBase=Depends(oauth2.require_role('talent'))):
+    project=db.query(models.Project).filter(models.Project.project_id ==id).first()
+    if not project:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='project khong ton tai')
+    
+    existed= db.query(models.ProjectTeam).filter( models.ProjectTeam.project_id == id,
+                                                 models.ProjectTeam.talent_user_id==current_user.user_id).first()
+    
+    if existed:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,detail='nguoi dung da ton tai')
+    
+    member = models.ProjectTeam(
+        project_id=id,
+        talent_user_id=current_user.user_id,
+        status="pending")
+    db.add(member)
+    db.commit()
+    return {"message": " gui yeu cầu tham gia thành công"}
