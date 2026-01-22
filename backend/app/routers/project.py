@@ -54,6 +54,7 @@ def approve_project( project_id: int,db: Session = Depends(get_db),current_user:
     project.status = "approved"
     db.commit()
     return project
+
 # từ chối project
 @router.put("/lab_admin/{project_id}/reject", response_model=schemas.ProjectResponse)
 def reject_project( project_id: int,db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
