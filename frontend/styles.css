@@ -1,0 +1,70 @@
+/* styles.css */
+:root {
+  --bg: #e9f7f6;
+  --brand: #16a3a2;
+  --text: #0f172a;
+  --card: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+}
+
+.page {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+.topbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px 10px;
+}
+
+.brand {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--brand);
+}
+
+.login {
+  position: absolute;
+  right: 22px;
+  top: 26px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  color: var(--brand);
+}
+
+.login:hover {
+  text-decoration: underline;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 18px 20px 40px;
+}
+
+.card {
+  width: min(820px, 92vw);
+  height: 320px;
+  background: var(--card);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
+}
