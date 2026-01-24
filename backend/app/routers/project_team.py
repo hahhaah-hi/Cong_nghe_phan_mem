@@ -34,7 +34,7 @@ def project_team(id,member_id,db:Session=Depends(get_db), current_user: Session=
 
 #từ chối talent
 @router.put('/mentor/project/{id}/reject/member/{member_id}/', status_code= status.HTTP_200_OK,response_model=schemas.ProjectTeamResponse)
-def project_team(id,member_id,db:Session=Depends(get_db), current_user: Session=Depends(oauth2.require_role('mentor'))):
+def project_team(id,member_id,db:Session=Depends(get_db), current_user:schemas.UserBase=Depends(oauth2.require_role('mentor'))):
     project=db.query(models.ProjectTeam).filter(models.ProjectTeam.project_id==id).first()
     if not project:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,detail='project not found')
@@ -50,3 +50,27 @@ def project_team(id,member_id,db:Session=Depends(get_db), current_user: Session=
     db.commit()
     return member
 
+# is leader
+@router.post('/project_team/{id}/leader/{talent_id}/',status_code=status.HTTP_200_OK, response_model=schemas.ProjectTeamResponse)
+def isleader(id:int,talent_id:int, db:Session=Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('mentor'))):
+    project=db.query(models.ProjectTeam).filter(models.ProjectTeam.project_id==id).first()
+    if not project:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail='project not found')
+    
+    talent=db.query(models.ProjectTeam).filter(models.ProjectTeam.project_id==id,models.ProjectTeam.talent_user_id==talent_id).first()
+    if not talent:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,detail='talent not found')
+    
+    if talent.is_leader:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,detail='talent is already leader')
+    
+    existed_leader = db.query(models.ProjectTeam).filter( models.ProjectTeam.project_id == id,models.ProjectTeam.is_leader == True).first()
+    if existed_leader:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail='project already has a leader'
+        )
+
+    talent.is_leader = True
+    db.commit()
+    return talent
