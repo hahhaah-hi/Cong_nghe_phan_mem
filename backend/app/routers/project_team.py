@@ -8,14 +8,15 @@ from typing import List
 
 router=APIRouter(tags=['Project_Team'])
 # hiển thị danh sách talent
-@router.get('/mentor/project/{id}/project_team/', status_code= status.HTTP_200_OK,response_model=List[schemas.ProjectTeamResponse])
+@router.get('/api/mentor/project/{id}/project_team/', status_code= status.HTTP_200_OK,response_model=List[schemas.ProjectTeamResponse])
 def project_team(id,db:Session=Depends(get_db), current_user: Session=Depends(oauth2.require_role('mentor'))):
     member=db.query(models.ProjectTeam).filter(models.ProjectTeam.project_id==id).all()
     if not member:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,detail='project not found')
     return member
+
 # duyệt talent 
-@router.put('/mentor/project/{id}/improve/member/{member_id}/', status_code= status.HTTP_200_OK,response_model=schemas.ProjectTeamResponse)
+@router.put('/api/mentor/project/{id}/improve/member/{member_id}/', status_code= status.HTTP_200_OK,response_model=schemas.ProjectTeamResponse)
 def project_team(id,member_id,db:Session=Depends(get_db), current_user: Session=Depends(oauth2.require_role('mentor'))):
     project=db.query(models.ProjectTeam).filter(models.ProjectTeam.project_id==id).first()
     if not project:
@@ -33,7 +34,7 @@ def project_team(id,member_id,db:Session=Depends(get_db), current_user: Session=
     return member
 
 #từ chối talent
-@router.put('/mentor/project/{id}/reject/member/{member_id}/', status_code= status.HTTP_200_OK,response_model=schemas.ProjectTeamResponse)
+@router.put('/api/mentor/project/{id}/reject/member/{member_id}/', status_code= status.HTTP_200_OK,response_model=schemas.ProjectTeamResponse)
 def project_team(id,member_id,db:Session=Depends(get_db), current_user:schemas.UserBase=Depends(oauth2.require_role('mentor'))):
     project=db.query(models.ProjectTeam).filter(models.ProjectTeam.project_id==id).first()
     if not project:
@@ -51,7 +52,7 @@ def project_team(id,member_id,db:Session=Depends(get_db), current_user:schemas.U
     return member
 
 # is leader
-@router.post('/project_team/{id}/leader/{talent_id}/',status_code=status.HTTP_200_OK, response_model=schemas.ProjectTeamResponse)
+@router.post('/api/project_team/{id}/leader/{talent_id}/',status_code=status.HTTP_200_OK, response_model=schemas.ProjectTeamResponse)
 def isleader(id:int,talent_id:int, db:Session=Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('mentor'))):
     project=db.query(models.ProjectTeam).filter(models.ProjectTeam.project_id==id).first()
     if not project:

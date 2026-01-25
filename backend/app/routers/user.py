@@ -13,7 +13,7 @@ router = APIRouter(
     ) 
 
 #phân quyền cho admin xem tat ca user
-@router.get('/user', status_code=status.HTTP_200_OK, response_model=List[schemas.UserResponse], tags=["Users"])
+@router.get('/api/user', status_code=status.HTTP_200_OK, response_model=List[schemas.UserResponse], tags=["Users"])
 def getall( db:Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     user = db.query(models.User).all()
     all_user=[]
@@ -26,7 +26,7 @@ def getall( db:Session = Depends(get_db),current_user: schemas.UserBase=Depends(
                          'created_at':u.created_at})
     return all_user
 
-@router.get('/user/{id}', status_code=status.HTTP_200_OK, response_model=schemas.UserResponse, tags=["Users"])
+@router.get('/api/user/{id}', status_code=status.HTTP_200_OK, response_model=schemas.UserResponse, tags=["Users"])
 def get_user(id,  db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     user = db.query(models.User).filter(models.User.user_id == id).first()
     if not user:
@@ -41,7 +41,7 @@ def get_user(id,  db: Session = Depends(get_db),current_user: schemas.UserBase=D
     return userinfo
 
 # cap nhat user
-@router.put('/user/{id}', status_code=status.HTTP_202_ACCEPTED, tags=["Users"])
+@router.put('/api/user/{id}', status_code=status.HTTP_202_ACCEPTED, tags=["Users"])
 def update_user(id, request:schemas.UserUpdate, db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     user=db.query(models.User).filter(models.User.user_id == id)
     if not user.first():
@@ -57,7 +57,7 @@ def update_user(id, request:schemas.UserUpdate, db: Session = Depends(get_db),cu
 
 
 # xoa user
-@router.delete('/user/{id}', status_code=200, tags=["Users"])
+@router.delete('/api/user/{id}', status_code=200, tags=["Users"])
 def delete_user(id:int, db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     user = db.query(models.User).filter(models.User.user_id == id)
 

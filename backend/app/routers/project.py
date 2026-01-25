@@ -8,7 +8,7 @@ from typing import List
 
 router=APIRouter(tags=['Project'])
     
-@router.post('/company/project/post', status_code=201)
+@router.post('/api/company/project/post', status_code=201)
 def create_project( request: schemas.ProjectCreate, db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('company'))):
 
     # 2. Check mentor tồn tại
@@ -35,7 +35,7 @@ def create_project( request: schemas.ProjectCreate, db: Session = Depends(get_db
 
     return project
 # update project
-@router.put("/lab_admin/{project_id}/approve", response_model=schemas.ProjectResponse)
+@router.put("/api/lab_admin/{project_id}/approve", response_model=schemas.ProjectResponse)
 def approve_project( project_id: int,db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     project = db.query(models.Project).filter(models.Project.project_id == project_id).first()
     if not project:
@@ -56,7 +56,7 @@ def approve_project( project_id: int,db: Session = Depends(get_db),current_user:
     return project
 
 # từ chối project
-@router.put("/lab_admin/{project_id}/reject", response_model=schemas.ProjectResponse)
+@router.put("/api/lab_admin/{project_id}/reject", response_model=schemas.ProjectResponse)
 def reject_project( project_id: int,db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     project = db.query(models.Project).filter(models.Project.project_id == project_id).first()
     if not project:
@@ -77,7 +77,7 @@ def reject_project( project_id: int,db: Session = Depends(get_db),current_user: 
     return project
 
 #xóa project
-@router.put("/lab_admin/{project_id}/delete", response_model=schemas.ProjectResponse)
+@router.put("/api/lab_admin/{project_id}/delete", response_model=schemas.ProjectResponse)
 def delete_project( project_id: int,db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     project = db.query(models.Project).filter(models.Project.project_id == project_id)
     if not project.first():

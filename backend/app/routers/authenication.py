@@ -10,14 +10,13 @@ router = APIRouter(
 
 # đăng kí tài khoản sinh viên
 
-@router.post('/register', status_code=201, response_model=schemas.UserResponse)
+@router.post('/api/auth/register', status_code=201, response_model=schemas.UserResponse)
 def register(request: schemas.UserCreate, db: Session = Depends(get_db)):
     new_user =db.query(models.User).filter(models.User.user_name == request.user_name).first()
     # 1. Check user tồn tại
     if new_user:
         raise HTTPException(400, "User already exists")
-
-    # 2. Tạo user
+    
     new_user = models.User(
         user_name=request.user_name,
         full_name=request.full_name,
@@ -49,7 +48,7 @@ def register(request: schemas.UserCreate, db: Session = Depends(get_db)):
 
     return new_user
 
-@router.post('/login', status_code=status.HTTP_202_ACCEPTED,response_model=schemas.Token)
+@router.post('/api/auth/login', status_code=status.HTTP_202_ACCEPTED,response_model=schemas.Token)
 def login_user(request:OAuth2PasswordRequestForm = Depends(), db: Session=Depends(get_db)):
     login = db.query(models.User).filter(models.User.user_name==request.username).first()
     if not login:
