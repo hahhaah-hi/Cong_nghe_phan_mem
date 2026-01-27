@@ -155,7 +155,7 @@ def delete_user(id:int, db: Session = Depends(get_db),current_user: schemas.User
     user = db.query(models.User).filter(models.User.user_id == id)
 
     if not user.first():
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(status_code=404, detail="User not foun  d")
 
     user.delete(synchronize_session=False)
     db.commit()

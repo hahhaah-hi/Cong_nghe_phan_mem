@@ -5,6 +5,7 @@ from app.database import get_db
 from app.routers import hashing
 from app.core.token import create_access_token
 from fastapi.security import OAuth2PasswordRequestForm
+from app.core import oauth2
 router = APIRouter(
     tags=['Authenication'])
 
