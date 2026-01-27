@@ -90,7 +90,7 @@ def get_talent_(id: int, db: Session = Depends(get_db),current_user: schemas.Use
 
 
 # cho admin xem tat ca user
-@router.get('/api/lab_admin/profile/user', status_code=status.HTTP_200_OK, response_model=List[schemas.UserResponse], tags=["Users"])
+@router.get('/api/lab_admin/profile/user', status_code=status.HTTP_200_OK, response_model=List[schemas.UserResponse] )
 def getall( db:Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     user = db.query(models.User).all()
     all_user=[]
@@ -134,7 +134,7 @@ def get_company_full(db: Session = Depends(get_db),current_user: schemas.UserBas
 
 
 #xem user theo id
-@router.get('/api/lab_admin/profile/user/{id}', status_code=status.HTTP_200_OK, response_model=schemas.UserResponse, tags=["Users"])
+@router.get('/api/lab_admin/profile/user/{id}', status_code=status.HTTP_200_OK, response_model=schemas.UserResponse)
 def get_user(id,  db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     user = db.query(models.User).filter(models.User.user_id == id).first()
     if not user:
@@ -150,7 +150,7 @@ def get_user(id,  db: Session = Depends(get_db),current_user: schemas.UserBase=D
 
 
 # xoa user
-@router.delete('/api/lab_admin/delete/{id}', status_code=200, tags=["Users"])
+@router.delete('/api/lab_admin/delete/{id}', status_code=200 )
 def delete_user(id:int, db: Session = Depends(get_db),current_user: schemas.UserBase=Depends(oauth2.require_role('lab_admin'))):
     user = db.query(models.User).filter(models.User.user_id == id)
 
