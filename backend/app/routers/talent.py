@@ -36,7 +36,7 @@ def join_project(id:int,db:Session=Depends(get_db), current_user:schemas.UserBas
 
 
 #tạo hoặc cập nhật profile talent
-@router.put('/api/profile/talent', response_model=schemas.TalentResponse)
+@router.put('/api/talent/update', response_model=schemas.TalentResponse)
 def update_talent( request:schemas.TalentUpdate , db:Session=Depends(get_db),current_user:schemas.UserBase=Depends(oauth2.require_role(['talent']))):
     user = db.query(models.User).filter(models.User.user_id == current_user.user_id) 
     if not user.first():

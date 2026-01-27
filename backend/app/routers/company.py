@@ -41,7 +41,7 @@ def register_cty( request:schemas.CompanyCreate,db:Session = Depends(get_db),cur
     return company
 
 # update company
-@router.put('/api/profile/company', response_model=schemas.CompanyResponse)
+@router.put('/api/company/update', response_model=schemas.CompanyResponse)
 def update_company(id:int, request:schemas.CompanyCreate , db:Session=Depends(get_db),current_user:schemas.UserBase=Depends(oauth2.require_role('company'))):
     user = db.query(models.User).filter(models.User.user_id == current_user.user_id) 
     if not user.first():
@@ -75,25 +75,4 @@ def get_company_full(db: Session = Depends(get_db),current_user: schemas.UserBas
         raise HTTPException(status_code=404, detail="Không tìm thấy hồ sơ company")
     return company_profile
 
-@router.put('/api/company', response_model=schemas.CompanyResponse)
-def update_company( request:schemas.CompanyCreate , db:Session=Depends(get_db),current_user:schemas.UserBase=Depends(oauth2.require_role('company'))):
-    user = db.query(models.User).filter(models.User.user_id == current_user.user_id) 
-    if not user.first():
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='kh tim thay nguoi dung')
-    u_company = db.query(models.Company).filter(models.Company.user_id==current_user.user_id).first()
-    if not u_company:   
-        u_company=models.Company(user_id=current_user.user_id,
-            company_id=request.company_id,
-            company_name=request.company_name,
-            department=request.department,
-            description=request.description,
-            website=request.website)
-        db.add(u_company)
-    u_company.company_name = request.company_name
-    u_company.department = request.department
-    u_company.description = request.description
-    u_company.website = request.website
-
-    db.commit()  
-    db.refresh(u_company)
-    return  u_company
+ 
