@@ -1,0 +1,589 @@
+:root {
+  --bg: #e9f7f6;
+  --brand: #0aa8a3;
+  --card: #ffffff;
+  --text: #132a2a;
+  --muted: rgba(19, 42, 42, 0.55);
+  --line: rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   FUND SPLIT PAGE
+   ========================= */
+.fsPage {
+  min-height: 100vh;
+  padding: 18px 18px 60px;
+  background:
+    radial-gradient(1100px 520px at 50% -160px, rgba(255,255,255,0.92) 0%, rgba(233,247,246,1) 60%),
+    radial-gradient(900px 520px at 18% 28%, rgba(10,168,163,0.10) 0%, transparent 62%),
+    radial-gradient(900px 520px at 82% 25%, rgba(10,168,163,0.08) 0%, transparent 62%);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+}
+
+.fsPage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 22% 52%, rgba(10,168,163,0.22) 0 7px, transparent 8px),
+    radial-gradient(circle at 70% 48%, rgba(255,120,120,0.22) 0 7px, transparent 8px),
+    radial-gradient(circle at 86% 64%, rgba(10,168,163,0.18) 0 8px, transparent 9px),
+    radial-gradient(circle at 40% 78%, rgba(255,120,120,0.18) 0 7px, transparent 8px);
+  opacity: 0.7;
+}
+
+/* ===== Browser bar ===== */
+.fsBrowser {
+  height: 54px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 10px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 1;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  display: inline-block;
+}
+.dot.red { background: #ff5f57; }
+.dot.yellow { background: #febc2e; }
+.dot.green { background: #28c840; }
+.dot.gray { background: rgba(19, 42, 42, 0.18); width: 12px; height: 12px; }
+
+.fsAddr {
+  flex: 1;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(19, 42, 42, 0.08);
+  margin: 0 16px;
+}
+
+.fsRightDots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ===== Header top ===== */
+.fsTop {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.fsTopLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 6px;
+}
+
+.fsIcon {
+  width: 34px;
+  height: 26px;
+  border: 2px solid rgba(19, 42, 42, 0.55);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  opacity: 0.85;
+}
+
+.fsTopTitle {
+  font-weight: 1000;
+  letter-spacing: 0.5px;
+  color: rgba(19, 42, 42, 0.85);
+  text-transform: uppercase;
+}
+
+.fsBrandWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.fsBrand {
+  font-size: 56px;
+  font-weight: 1000;
+  letter-spacing: 0.2px;
+  color: rgba(10, 168, 163, 0.98);
+  line-height: 1;
+}
+
+/* ===== Main card ===== */
+.fsCard {
+  margin-top: 12px;
+  background: rgba(238, 248, 230, 0.75);
+  border: 1px solid rgba(19, 42, 42, 0.12);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.07);
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Project row ===== */
+.fsProjectRow {
+  display: grid;
+  grid-template-columns: 86px 1fr 240px;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 10px 14px;
+}
+
+.fsAvatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  background: rgba(10, 168, 163, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(10, 168, 163, 1);
+  font-weight: 1000;
+  font-size: 22px;
+}
+
+.fsProjectInfo {
+  line-height: 1.2;
+}
+
+.fsProjectName {
+  font-weight: 1000;
+  font-size: 18px;
+  color: rgba(19, 42, 42, 0.88);
+}
+
+.fsProjectSub {
+  margin-top: 5px;
+  color: rgba(19, 42, 42, 0.6);
+  font-weight: 800;
+}
+
+.fsProjectSelectWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fsSelect {
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(19, 42, 42, 0.18);
+  background: #fff;
+  padding: 0 14px;
+  font-weight: 1000;
+  letter-spacing: 0.2px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* ===== Table phases ===== */
+.fsTable {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(19, 42, 42, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.fsRow {
+  display: grid;
+  grid-template-columns: 1fr 200px 240px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-top: 1px solid rgba(19, 42, 42, 0.12);
+}
+
+.fsRow:first-child {
+  border-top: none;
+}
+
+.fsRowTotal {
+  background: rgba(255, 255, 255, 0.92);
+  font-weight: 1000;
+}
+
+.fsColLeft {
+  font-weight: 1000;
+  color: rgba(19, 42, 42, 0.82);
+}
+
+.fsColMid {
+  font-weight: 1000;
+  text-align: right;
+  color: rgba(19, 42, 42, 0.75);
+}
+
+.fsColRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Pills + buttons */
+.fsPill {
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(19, 42, 42, 0.12);
+  font-weight: 1000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.fsPill.success {
+  background: rgba(10, 168, 163, 0.12);
+  color: rgba(10, 168, 163, 1);
+  border-color: rgba(10, 168, 163, 0.22);
+}
+
+.fsPill.muted {
+  background: rgba(19, 42, 42, 0.06);
+  color: rgba(19, 42, 42, 0.55);
+}
+
+.fsBtnTiny {
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: none;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 1000;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(10, 168, 163, 0.22);
+}
+.fsBtnTiny:hover { filter: brightness(0.98); }
+
+/* ===== Panels ===== */
+.fsPanels {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.fsPanel {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(19, 42, 42, 0.12);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.fsPanelTitle {
+  font-size: 20px;
+  font-weight: 1000;
+  color: rgba(10, 168, 163, 1);
+  margin-bottom: 6px;
+}
+
+.fsPanelSub {
+  color: rgba(19, 42, 42, 0.55);
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.45;
+}
+
+/* ===== Left form grid ===== */
+.fsFormGrid {
+  display: grid;
+  grid-template-columns: 210px 130px 1fr;
+  gap: 10px 12px;
+  align-items: center;
+}
+
+.fsFormLabel {
+  font-weight: 1000;
+  background: rgba(19, 42, 42, 0.06);
+  border: 1px solid rgba(19, 42, 42, 0.08);
+  border-radius: 10px;
+  padding: 8px 10px;
+  color: rgba(19, 42, 42, 0.78);
+}
+
+.fsFormControl {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.fsPctWrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(19, 42, 42, 0.18);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: #fff;
+}
+
+.fsPctInput {
+  width: 56px;
+  border: none;
+  outline: none;
+  font-weight: 1000;
+  text-align: right;
+  background: transparent;
+  color: rgba(19, 42, 42, 0.85);
+}
+
+.fsPctUnit {
+  font-weight: 1000;
+  color: rgba(19, 42, 42, 0.6);
+}
+
+.fsFormValue {
+  font-weight: 1000;
+  border-radius: 999px;
+  padding: 8px 12px;
+  border: 1px solid rgba(19, 42, 42, 0.1);
+  background: rgba(255, 255, 255, 0.88);
+  text-align: right;
+  color: rgba(19, 42, 42, 0.78);
+}
+
+.fsBold { font-weight: 1000; }
+
+/* Toggle row */
+.fsToggleRow {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(19, 42, 42, 0.12);
+}
+
+.fsToggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+
+.fsToggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.fsToggleUi {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: rgba(10, 168, 163, 0.35);
+  border: 1px solid rgba(10, 168, 163, 0.35);
+}
+
+.fsToggleUi::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+  transition: transform 0.15s ease;
+}
+
+.fsToggle input:checked + .fsToggleUi::after {
+  transform: translateX(20px);
+}
+
+.fsToggleText {
+  font-weight: 900;
+  color: rgba(19, 42, 42, 0.7);
+}
+
+/* Footer buttons */
+.fsFooterLeft {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fsBackBtn {
+  border: none;
+  background: rgba(19, 42, 42, 0.07);
+  color: rgba(19, 42, 42, 0.75);
+  font-weight: 1000;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.fsNextBtn {
+  border: none;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 1000;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 12px 22px rgba(10, 168, 163, 0.22);
+}
+
+.fsBackBtn:hover,
+.fsNextBtn:hover { filter: brightness(0.98); }
+
+/* ===== Right panel info + members ===== */
+.fsInfoLine {
+  font-weight: 900;
+  color: rgba(19, 42, 42, 0.72);
+  margin-bottom: 8px;
+}
+
+.fsMemberList {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fsMemberRow {
+  display: grid;
+  grid-template-columns: 52px 1fr 22px;
+  gap: 12px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(19, 42, 42, 0.12);
+  border-radius: 14px;
+  padding: 10px 10px;
+}
+
+.fsMemberAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(10, 168, 163, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 1000;
+  color: rgba(10, 168, 163, 1);
+}
+
+.fsMemberMain {
+  min-width: 0;
+}
+
+.fsMemberTop {
+  display: grid;
+  grid-template-columns: 1fr 150px 70px;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.fsMemberName {
+  font-weight: 1000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgba(19, 42, 42, 0.85);
+}
+
+.fsMemberAmount {
+  text-align: right;
+  font-weight: 1000;
+  color: rgba(19, 42, 42, 0.78);
+}
+
+.fsMemberPct {
+  text-align: right;
+  font-weight: 1000;
+  color: rgba(19, 42, 42, 0.6);
+}
+
+.fsBar {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(19, 42, 42, 0.08);
+  overflow: hidden;
+}
+
+.fsBarFill {
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(10, 168, 163, 0.9);
+}
+
+.fsMemberArrow {
+  opacity: 0.55;
+  font-weight: 1000;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 980px) {
+  .fsTop {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .fsBrandWrap { justify-content: flex-start; padding-left: 6px; }
+  .fsBrand { font-size: 46px; }
+}
+
+@media (max-width: 900px) {
+  .fsProjectRow {
+    grid-template-columns: 72px 1fr;
+  }
+  .fsProjectSelectWrap {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    padding-left: 4px;
+  }
+
+  .fsPanels {
+    grid-template-columns: 1fr;
+  }
+
+  .fsRow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .fsColMid,
+  .fsColRight {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .fsFormGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fsFormValue {
+    text-align: left;
+    border-radius: 14px;
+  }
+
+  .fsMemberTop {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .fsMemberAmount,
+  .fsMemberPct {
+    text-align: left;
+  }
+}

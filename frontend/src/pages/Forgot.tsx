@@ -4,17 +4,7 @@ export default function Forgot() {
   return (
     <div className="page">
       <div className="loginWrap">
-        <div className="loginBrowser">
-          <div className="dot red" />
-          <div className="dot yellow" />
-          <div className="dot green" />
-          <div className="addrBar" />
-          <div className="rightDots">
-            <div className="dot gray" />
-            <div className="dot red" />
-            <div className="dot green" />
-          </div>
-        </div>
+        
 
         <h1 className="bigTitle">Labodc</h1>
 
