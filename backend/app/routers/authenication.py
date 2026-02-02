@@ -3,14 +3,15 @@ from sqlalchemy.orm import Session
 from app import models, schemas
 from app.database import get_db
 from app.routers import hashing
-from app.routers.token import create_access_token
+from app.core.token import create_access_token
 from fastapi.security import OAuth2PasswordRequestForm
+from app.core import oauth2
 router = APIRouter(
     tags=['Authenication'])
 
 # đăng kí tài khoản sinh viên
 
-@router.post('/register', status_code=201, response_model=schemas.UserResponse)
+@router.post('/api/auth/register', status_code=201, response_model=schemas.UserResponse)
 def register(request: schemas.UserCreate, db: Session = Depends(get_db)):
     new_user =db.query(models.User).filter(models.User.user_name == request.user_name).first()
     # 1. Check user tồn tại
@@ -49,7 +50,7 @@ def register(request: schemas.UserCreate, db: Session = Depends(get_db)):
 
     return new_user
 
-@router.post('/login', status_code=status.HTTP_202_ACCEPTED,response_model=schemas.Token)
+@router.post('/api/auth/login', status_code=status.HTTP_202_ACCEPTED,response_model=schemas.Token)
 def login_user(request:OAuth2PasswordRequestForm = Depends(), db: Session=Depends(get_db)):
     login = db.query(models.User).filter(models.User.user_name==request.username).first()
     if not login:
