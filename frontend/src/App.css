@@ -28,10 +28,33 @@ a {
   color: inherit;
 }
 
-/* full page center */
-.page {
+/* =========================
+   NỀN XANH FULL (CHUNG)
+   ========================= */
+.page,
+.portalPage {
   min-height: 100vh;
-  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(1100px 520px at 50% -160px, rgba(255,255,255,0.92) 0%, rgba(233,247,246,1) 60%),
+    radial-gradient(900px 520px at 18% 28%, rgba(10,168,163,0.10) 0%, transparent 62%),
+    radial-gradient(900px 520px at 82% 25%, rgba(10,168,163,0.08) 0%, transparent 62%);
+}
+
+.page::before,
+.portalPage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 22% 52%, rgba(10,168,163,0.22) 0 7px, transparent 8px),
+    radial-gradient(circle at 70% 48%, rgba(255,120,120,0.22) 0 7px, transparent 8px),
+    radial-gradient(circle at 86% 64%, rgba(10,168,163,0.18) 0 8px, transparent 9px),
+    radial-gradient(circle at 40% 78%, rgba(255,120,120,0.18) 0 7px, transparent 8px);
+  opacity: 0.75;
 }
 
 /* ===== HOME ===== */
@@ -71,6 +94,8 @@ a {
   display: flex;
   justify-content: center;
   padding: 18px 20px 40px;
+  position: relative;
+  z-index: 1;
 }
 
 .card {
@@ -98,6 +123,8 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .loginBrowser {

@@ -1,0 +1,402 @@
+:root{
+  --mint-0:#eefbfb;
+  --mint-1:#e9f7f6;
+  --mint-2:#e3f4f2;
+
+  --teal:#0aa8a3;
+  --teal-2:#0f9c95;
+
+  /* ===== XANH ĐẬM CHUẨN ===== */
+  --deep-teal:#0a6f6a;
+  --deep-teal-hover:#075e5a;
+
+  --card:#ffffff;
+  --text:#163333;
+
+  --shadow: 0 10px 22px rgba(0,0,0,.08);
+
+  --gold:#f2b84a;
+  --band:#edf4f3;
+}
+
+*{ box-sizing:border-box; }
+
+.portalPage{
+  min-height:100vh;
+  overflow:hidden;
+  background: linear-gradient(180deg, var(--mint-0) 0%, var(--mint-1) 55%, var(--mint-2) 100%);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color:var(--text);
+}
+
+/* ===== BROWSER BAR ===== */
+.portalBrowser{
+  height:64px;
+  margin:16px 16px 0;
+  border-radius:14px;
+  background: rgba(255,255,255,.92);
+  border:1px solid rgba(0,0,0,.06);
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  gap:12px;
+  box-shadow: 0 10px 18px rgba(0,0,0,.06);
+}
+
+.browserLeft{ display:flex; gap:10px; align-items:center; }
+.browserRight{ display:flex; gap:12px; align-items:center; margin-left:6px; }
+
+.dot{ width:14px; height:14px; border-radius:999px; display:inline-block; }
+.dot.red{ background:#ff5f57; }
+.dot.yellow{ background:#febc2e; }
+.dot.green{ background:#28c840; }
+
+.dot.light{ background:rgba(22,51,51,.12); width:14px; height:14px; }
+.dot.redR{ background:#ff5f57; opacity:.5; width:14px; height:14px; }
+.dot.greenR{ background:#28c840; opacity:.85; width:14px; height:14px; }
+
+.browserNav{
+  display:flex;
+  gap:8px;
+  margin-left:8px;
+}
+.navBtn{
+  width:34px;height:28px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,.06);
+  background: rgba(22,51,51,.06);
+  display:grid;place-items:center;
+  cursor:pointer;
+}
+.navBtn:active{ transform: translateY(1px); }
+.navIco{ width:18px;height:18px; color: rgba(22,51,51,.55); }
+
+.portalAddr{
+  flex:1;
+  height:18px;
+  border-radius:999px;
+  background: rgba(22,51,51,.10);
+  margin:0 10px 0 6px;
+}
+
+.reloadBtn{
+  width:36px;height:32px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.06);
+  background: rgba(22,51,51,.06);
+  display:grid;place-items:center;
+  cursor:pointer;
+}
+.reloadBtn:active{ transform: translateY(1px); }
+.reloadIco{ width:18px;height:18px; color: rgba(22,51,51,.55); }
+
+/* ===== HEADER BAND ===== */
+.topBand{
+  margin: 10px 0 0;
+  background: var(--band);
+  padding: 18px 0 10px;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.profileHeader{
+  text-align:center;
+}
+.profileBrand{
+  font-size:56px;
+  font-weight:1000;
+  letter-spacing:.3px;
+  color: var(--teal);
+  line-height:1;
+}
+.profileSub{
+  margin-top:6px;
+  font-weight:1000;
+  letter-spacing:.9px;
+  color: rgba(0,0,0,.78);
+  font-size:18px;
+}
+
+/* ===== CONTAINER ===== */
+.profileWrap{
+  width: min(1120px, 94vw);
+  margin: 12px auto 64px;
+}
+
+/* ===== SECTION TITLE ===== */
+.profileSectionTitle{
+  margin: 18px 0 10px;
+  font-weight: 1000;
+  font-size: 22px;
+  color: var(--teal);
+  display:flex;
+  align-items:center;
+  gap: 14px;
+}
+.profileSectionTitle::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background: rgba(0,0,0,.16);
+}
+
+/* ===== MAIN INFO CARD ===== */
+.profileCard{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  background: rgba(255,255,255,.95);
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:14px;
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+}
+
+.profileAvatar{
+  width:96px;height:96px;border-radius:999px;
+  background: rgba(10,168,163,.12);
+  display:grid; place-items:center;
+  font-weight:1000;
+  font-size:42px;
+  color: var(--teal);
+}
+
+.profileInfo{
+  font-weight:900;
+  color: rgba(0,0,0,.55);
+  line-height:1.45;
+  font-size:18px;
+}
+.profileInfo b{
+  color: rgba(0,0,0,.62);
+  font-weight:1000;
+}
+
+/* ===== GRID 3 CARD ===== */
+.profileGrid{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.profileMiniCard{
+  background: rgba(255,255,255,.95);
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:14px;
+  box-shadow: var(--shadow);
+  padding: 12px 14px 14px;
+}
+
+/* mini header */
+.miniTitle{
+  font-weight:1000;
+  font-size:20px;
+  color: rgba(0,0,0,.78);
+  margin: 0;
+  padding: 0 0 10px;
+  border-bottom: 2px solid rgba(0,0,0,.08);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* icon block */
+.miniIcon{
+  width:34px;height:34px;
+  border-radius:10px;
+  background: rgba(10,168,163,.10);
+  border: 1px solid rgba(10,168,163,.18);
+  display:inline-block;
+  position:relative;
+}
+
+/* rows */
+.miniRow{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+  font-weight:900;
+  color: rgba(0,0,0,.58);
+}
+
+.miniBadge{
+  background: rgba(10,168,163,.10);
+  border: 1px solid rgba(10,168,163,.12);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight:1000;
+  color: rgba(0,0,0,.55);
+  font-size:13px;
+}
+
+/* progress small bars */
+.bar{
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.08);
+  margin-top:8px;
+  overflow:hidden;
+  position:relative;
+}
+.barFill{
+  height:100%;
+  background: var(--teal);
+  border-radius:999px;
+  position:relative;
+}
+.barFill::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:0;
+  height:100%;
+  width: 22%;
+  background: var(--gold);
+  opacity:.95;
+}
+
+/* lists */
+.miniList{
+  margin: 10px 0 0;
+  padding-left: 18px;
+  font-weight:900;
+  color: rgba(0,0,0,.55);
+  line-height:1.7;
+}
+.miniList li::marker{
+  color: rgba(10,168,163,.35);
+  font-size: 18px;
+}
+.miniMore{
+  color: var(--teal);
+  font-weight:1000;
+}
+
+/* =======================================================
+   ✅ ALL BUTTONS DARK TEAL (fix yêu cầu của bạn)
+======================================================= */
+.miniBtn{
+  width: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-top: 12px;
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: var(--deep-teal) !important;
+  color: #fff !important;
+
+  font-weight: 1000;
+  letter-spacing: .6px;
+
+  box-shadow: 0 12px 20px rgba(10,111,106,.28);
+  cursor: pointer;
+}
+.miniBtn:hover{
+  background: var(--deep-teal-hover) !important;
+}
+.miniBtn:active{
+  transform: translateY(1px);
+}
+.miniBtn.small{
+  width: auto;
+  padding: 10px 16px;
+  border-radius: 14px;
+  font-size: 13px;
+}
+
+/* ===== PROJECT AREA ===== */
+.projectRow{
+  margin-top: 12px;
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+}
+
+.projectCard{
+  background: rgba(255,255,255,.95);
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:14px;
+  box-shadow: var(--shadow);
+  padding: 12px 14px;
+}
+
+.projectTitle{
+  font-weight:1000;
+  color: rgba(0,0,0,.70);
+  margin-bottom: 10px;
+}
+
+.projectStatus{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+
+/* pill dark teal */
+.pill{
+  background: var(--deep-teal);
+  color: #fff;
+  font-weight:1000;
+  padding: 8px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 8px 16px rgba(10,111,106,.25);
+}
+
+/* progress dark teal */
+.progress{
+  flex:1;
+  height: 18px;
+  background: rgba(10,111,106,.12);
+  border-radius: 999px;
+  overflow:hidden;
+}
+
+/* phần fill giống màu ảnh bạn gửi */
+.progressFill{
+  height:100%;
+  background: #0a8f88;   /* teal vừa giống hình */
+  border-radius: 999px;
+}
+
+
+
+
+.projectCard.smallCard{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+/* ===== back button ===== */
+.backPortalBtn{
+  position: fixed;
+  left: 22px;
+  bottom: 18px;
+  border:none;
+  background: rgba(255,255,255,.92);
+  color: rgba(0,0,0,.55);
+  font-weight:1000;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.12);
+  box-shadow: 0 12px 22px rgba(0,0,0,.12);
+  cursor:pointer;
+}
+.backPortalBtn:hover{ filter: brightness(.99); }
+
+/* ===== responsive ===== */
+@media (max-width: 980px){
+  .profileGrid{ grid-template-columns: 1fr; }
+  .projectRow{ grid-template-columns: 1fr; }
+  .profileInfo{ font-size: 16px; }
+  .profileAvatar{ width: 84px; height: 84px; font-size: 38px; }
+  .portalBrowser{ height:60px; }
+  .profileBrand{ font-size:48px; }
+}

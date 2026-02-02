@@ -9,13 +9,26 @@ class TaskCreate(BaseModel):
     title: str
     description: Optional[str]
     deadline: Optional[date]
+    
+class TaskUpdate(BaseModel):
+    title: Optional[str]
+    status: Optional[str]
+    assigned_to: Optional[int]
+    description: Optional[str]
+    completed_at: Optional[datetime]
 
 
 class TaskResponse(BaseModel):
     task_id: int
+    title: str
+    project_id: int
+    assigned_by:int
+    assigned_to: int
     status: str
+    description: Optional[str]
     created_at: datetime
-    completed_at: Optional[datetime]
+    deadline: datetime   
+     
 
     class Config:
         from_attributes = True

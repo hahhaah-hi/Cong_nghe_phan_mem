@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from app import models
 from app.database import engine
-from app.routers import user,authenication,roles,profile,company,project,talent,mentor,project_team,lab_admin,system_admin
+from app.routers import user,authenication,roles,profile,company,project,talent,mentor,project_team,lab_admin,system_admin,task
 app = FastAPI()
 
 
@@ -19,3 +19,4 @@ app.include_router(mentor.router)
 app.include_router(project_team.router)
 app.include_router(lab_admin.router)
 app.include_router(system_admin.router)
+app.include_router(task.router)

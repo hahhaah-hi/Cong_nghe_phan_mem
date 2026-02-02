@@ -18,6 +18,8 @@ def join_project(id:int,db:Session=Depends(get_db), current_user:schemas.UserBas
     project=db.query(models.Project).filter(models.Project.project_id ==id).first()
     if not project:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='project khong ton tai')
+    if project.status=='reject':
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='project da bi tu choi')
     
     existed= db.query(models.ProjectTeam).filter( models.ProjectTeam.project_id == id,
                                                  models.ProjectTeam.talent_user_id==current_user.user_id).first()
@@ -40,7 +42,7 @@ def join_project(id:int,db:Session=Depends(get_db), current_user:schemas.UserBas
 def update_talent( request:schemas.TalentUpdate , db:Session=Depends(get_db),current_user:schemas.UserBase=Depends(oauth2.require_role(['talent']))):
     user = db.query(models.User).filter(models.User.user_id == current_user.user_id) 
     if not user.first():
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='kh tim thay nguoi dung')
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='khong tim thay nguoi dung')
     u_talent = db.query(models.Talent).filter(models.Talent.user_id==current_user.user_id).first()
     if not u_talent:    
         u_talent=models.Talent(user_id=current_user.user_id,
