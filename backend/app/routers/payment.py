@@ -5,6 +5,7 @@ from app.database import get_db
 from app.models.payment import Payment
 from app.schemas.payment import PaymentCreate, PaymentResponse
 from app.dependencies import get_current_user
+from app.core.oauth2 import get_current_user
 
 router = APIRouter(prefix="/payments", tags=["Payments"])
 
