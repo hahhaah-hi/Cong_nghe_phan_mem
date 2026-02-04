@@ -7,8 +7,8 @@ from app.models.user_role import UserRole
 from app.models.projects import Project
 from app.models.project_team import ProjectTeam
 from app.models.tasks import Task
-from app.models.payments import Payment
+from app.models.payment import Payment
 from app.models.fund_distribution import FundDistribution
 from app.models.notification import Notification
 from app.models.companies import Company
-from app.models.reports import Report
+from app.models.report import Report
