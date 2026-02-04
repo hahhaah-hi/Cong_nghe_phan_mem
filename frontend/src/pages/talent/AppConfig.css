@@ -1,0 +1,175 @@
+:root {
+  --primary: #2aa9a1;
+  --primary-dark: #2a7f7a;
+  --border: #d9e7e6;
+  --text: #243332;
+  --muted: #6a7c7a;
+  --shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-header {
+  width: 100%;
+  padding: 24px 0 12px;
+}
+
+.dashboard-brand {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.appcfg-head {
+  width: 860px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+
+.appcfg-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  min-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.appcfg-title {
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0 0 18px;
+}
+
+.appcfg-icon {
+  font-size: 44px;
+}
+
+.appcfg-title h2 {
+  margin: 0;
+  color: var(--primary-dark);
+  font-size: 38px;
+  font-weight: 900;
+}
+
+.appcfg-card {
+  width: 860px;
+  max-width: 980px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  padding: 36px 40px;
+  box-shadow: var(--shadow);
+}
+
+.appcfg-field {
+  margin-bottom: 22px;
+}
+
+.appcfg-field label {
+  display: block;
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.appcfg-field input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0 16px;
+  font-size: 15px;
+}
+
+.appcfg-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.appcfg-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+}
+
+.appcfg-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+.home-btn {
+  position: absolute;
+  left: 22px;
+  bottom: 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 18px;
+  font-weight: 900;
+}
+
+.save-btn {
+  position: absolute;
+  right: 22px;
+  bottom: 20px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 10px 22px;
+  font-weight: 900;
+}
+
+@media (max-width: 1100px) {
+  .appcfg-card {
+    width: min(760px, 92%);
+    padding: 30px 26px;
+  }
+
+  .appcfg-head {
+    width: min(760px, 92%);
+    padding: 0 26px;
+  }
+}
+
+@media (max-width: 720px) {
+  .appcfg-wrap {
+    padding: 20px 14px 96px;
+  }
+
+  .appcfg-title {
+    justify-content: flex-start;
+  }
+
+  .appcfg-title h2 {
+    font-size: 26px;
+  }
+
+  .appcfg-card {
+    width: 100%;
+    padding: 22px 16px;
+  }
+
+  .appcfg-head {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .home-btn,
+  .save-btn {
+    position: fixed;
+    bottom: 14px;
+  }
+}

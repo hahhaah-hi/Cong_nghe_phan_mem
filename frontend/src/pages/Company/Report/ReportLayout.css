@@ -1,0 +1,35 @@
+.rl{
+  min-height: 100vh;
+  background: #e9f7f6;
+  color: #132a2a;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.rl__wrap{
+  width: min(1200px, 94vw);
+  margin: 18px auto 40px;
+}
+
+.rl__brand{
+  margin: 10px 0 18px;
+  font-size: clamp(42px, 6vw, 64px);
+  font-weight: 900;
+  color: #0aa8a3;
+  letter-spacing: 0.4px;
+}
+
+.rl__body{
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.rl__content{
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 980px){
+  .rl__body{ flex-direction: column; }
+  .rl__content{ width: 100%; }
+}
