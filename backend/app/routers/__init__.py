@@ -9,3 +9,4 @@ from app.routers import talent
 from app.routers import lab_admin
 from app.routers import system_admin
 from app.routers import project_team
+from app.routers import task

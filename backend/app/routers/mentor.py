@@ -4,6 +4,7 @@ from app import models, schemas
 from app.routers import hashing 
 from app.database import get_db
 from app.core import oauth2
+from typing import List
 
 router=APIRouter(tags=['Mentor'])
 
@@ -27,7 +28,7 @@ def update_mentor( request:schemas.MentorBase , db:Session=Depends(get_db),curre
     return  u_mentor
 
 # duyệt talent 
-@router.put('/api/mentor/project/{id}/improve/member/{member_id}/', status_code= status.HTTP_200_OK,response_model=schemas.ProjectTeamResponse)
+@router.put('/api/mentor/project/{id}/improve/member/{member_id}', status_code= status.HTTP_200_OK,response_model=schemas.ProjectTeamResponse)
 def project_team(id,member_id,db:Session=Depends(get_db), current_user: Session=Depends(oauth2.require_role('mentor'))):
     project=db.query(models.ProjectTeam).filter(models.ProjectTeam.project_id==id).first()
     if not project:
@@ -48,7 +49,7 @@ def project_team(id,member_id,db:Session=Depends(get_db), current_user: Session=
 
 
 #từ chối talent
-@router.put('/api/metor/project/{id}/reject/member/{member_id}/', status_code= status.HTTP_200_OK,response_model=schemas.ProjectTeamResponse)
+@router.put('/api/metor/project/{id}/reject/member/{member_id}', status_code= status.HTTP_200_OK,response_model=schemas.ProjectTeamResponse)
 def project_team(id,member_id,db:Session=Depends(get_db), current_user:schemas.UserBase=Depends(oauth2.require_role('mentor'))):
     project=db.query(models.ProjectTeam).filter(models.ProjectTeam.project_id==id).first()
     if not project:
@@ -64,3 +65,26 @@ def project_team(id,member_id,db:Session=Depends(get_db), current_user:schemas.U
     member.status='reject'
     db.commit()
     return member
+
+#  cho phep mentor xem task đã giao
+@router.get('/api/mentor/task/assign',response_model=list[schemas.TaskResponse])
+def get_task(db:Session=Depends(get_db),current_user:schemas.UserBase=Depends(oauth2.require_role('mentor'))):
+    task=db.query(models.Task).filter(models.Task.assigned_by==current_user.user_id).all()
+    if not task:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail='mentor nay chua giao task nao')
+    return task
+
+# cho phep chinh sua task
+@router.put('/api/mentor/update/task/{id}',response_model=schemas.TaskResponse)
+def update_task(id,request:schemas.TaskUpdate,db:Session=Depends(get_db),current_user:schemas.UserBase=Depends(oauth2.require_role('mentor'))):
+    task=db.query(models.Task).filter(models.Task.task_id==id).first()
+    if not task:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail='khong tim thay task co id {id}')
+    
+    task.title = request.title
+    task.status = request.status
+    task.assigned_to = request.assigned_to
+    task.description = request.description
+    db.commit()
+     
+    return task
