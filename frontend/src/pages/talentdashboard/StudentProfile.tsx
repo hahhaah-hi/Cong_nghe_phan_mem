@@ -39,29 +39,38 @@ export default function StudentProfile() {
 
         <div className="profileGrid">
           <div className="profileMiniCard">
-            <div className="miniTitle skill">
-              <span className="miniIcon" aria-hidden />
-              Cập nhật kỹ năng
-            </div>
+  <div className="miniTitle skill">
+    <span className="miniIcon" aria-hidden />
+    Cập nhật kỹ năng
+  </div>
 
-            <div className="miniRow">
-              <span>Kỹ năng mềm</span>
-              <span className="miniBadge">6 / 10</span>
-            </div>
-            <div className="bar">
-              <div className="barFill" style={{ width: "60%" }} />
-            </div>
+  {/* Kỹ năng mềm */}
+  <div className="skillRow">
+    <div className="skillTop">
+      <div className="skillLabel">Kỹ năng mềm</div>
+      <div className="skillPill">6 / 10</div>
+    </div>
 
-            <div className="miniRow mt10">
-              <span>Kỹ năng chuyên môn</span>
-              <span className="miniBadge">5 / 10</span>
-            </div>
-            <div className="bar">
-              <div className="barFill" style={{ width: "50%" }} />
-            </div>
+    <div className="skillTrack">
+      <div className="skillSeg teal" style={{ width: "60%" }} />
+    </div>
+  </div>
 
-            <button className="miniBtn">CẬP NHẬT</button>
-          </div>
+  {/* Kỹ năng chuyên môn */}
+  <div className="skillRow">
+    <div className="skillTop">
+      <div className="skillLabel">Kỹ năng chuyên môn</div>
+      <div className="skillPill">5 / 10</div>
+    </div>
+
+    <div className="skillTrack">
+      <div className="skillSeg teal" style={{ width: "35%" }} />
+      <div className="skillSeg amber" style={{ width: "15%" }} />
+    </div>
+  </div>
+
+  <button className="miniBtn">CẬP NHẬT</button>
+</div>
 
           <div className="profileMiniCard">
             <div className="miniTitle cert">
