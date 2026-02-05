@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 export default function HomeLanding() {
   const navigate = useNavigate();
-
+ const goEnterprise = () => navigate("/enterprise");
   const goTalent = () => navigate("/talent");
+const goSystemAdmin = () => navigate("/talent/settings");
 
   return (
     <div className="hl">
@@ -26,7 +27,7 @@ export default function HomeLanding() {
             Dự án
           </button>
 
-          <button type="button" className="hlNavBtn">
+          <button type="button" className="hlNavBtn" onClick={goEnterprise}>
             Doanh nghiệp <span className="hlCaret">▾</span>
           </button>
 
@@ -39,8 +40,8 @@ export default function HomeLanding() {
             Sinh viên <span className="hlCaret">▾</span>
           </button>
 
-          <button type="button" className="hlNavBtn">
-            Báo cáo minh bạch
+          <button type="button" className="hlNavBtn" onClick={goSystemAdmin}>
+            System admin <span className="hlCaret">▾</span>
           </button>
         </nav>
 

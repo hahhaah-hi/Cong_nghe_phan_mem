@@ -1,0 +1,117 @@
+.pccf{
+  min-height: 100vh;
+  background: #e9f7f6;
+  color: #132a2a;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.pccf__wrap{
+  width: min(1100px, 94vw);
+  margin: 18px auto 40px;
+}
+
+.pccf__brand{
+  margin: 10px 0 18px;
+  font-size: clamp(42px, 6vw, 64px);
+  font-weight: 900;
+  color: #0aa8a3;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+.pccf__panel{
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 18px;
+  box-shadow: 0 18px 35px rgba(0,0,0,0.08);
+  padding: clamp(18px, 3vw, 26px);
+}
+
+.pccf__title{
+  margin: 0 0 6px;
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 900;
+}
+
+.pccf__subtitle{
+  margin: 0 0 16px;
+  color: rgba(19,42,42,0.62);
+  font-weight: 700;
+}
+
+.pccf__grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 860px){
+  .pccf__grid{ grid-template-columns: 1fr; }
+}
+
+.pccf__card{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  padding: 18px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(0,0,0,0.07);
+
+  text-decoration: none;
+  color: rgba(19,42,42,0.92);
+
+  box-shadow: 0 10px 18px rgba(0,0,0,0.06);
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.pccf__card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 28px rgba(0,0,0,0.10);
+  border-color: rgba(10,168,163,0.35);
+}
+
+.pccf__card--active{
+  border-color: rgba(10,168,163,0.55);
+  box-shadow: 0 18px 28px rgba(0,0,0,0.10);
+}
+
+.pccf__icon{
+  width: 74px;
+  height: 74px;
+  border-radius: 18px;
+  background: rgba(10,168,163,0.10);
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  flex: 0 0 74px;
+}
+
+.pccf__content{ min-width: 0; }
+
+.pccf__cardTitle{
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.pccf__cardDesc{
+  margin-top: 6px;
+  color: rgba(19,42,42,0.60);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.pccf__bottom{ margin-top: 14px; }
+
+.pccf__back{
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-weight: 900;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.78);
+  color: rgba(19, 42, 42, 0.78);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.08);
+}

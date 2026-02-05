@@ -1,0 +1,180 @@
+.flow {
+  min-height: 100vh;
+  background: #e9f7f6;
+  color: #132a2a;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.flow__wrap {
+  width: min(1100px, 94vw);
+  margin: 18px auto 40px;
+}
+
+.flow__brand {
+  font-size: 64px;
+  font-weight: 900;
+  color: #0aa8a3;
+  letter-spacing: 0.4px;
+  margin: 10px 0 18px;
+}
+
+/* canvas */
+.flow__canvas {
+  position: relative;
+  height: 520px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* node */
+.node {
+  position: absolute;
+  width: 220px;
+  padding: 14px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  color: inherit;
+  display: grid;
+  place-items: center;
+}
+
+.node__title {
+  font-weight: 900;
+  color: rgba(19, 42, 42, 0.92);
+}
+
+.node:hover {
+  transform: translateY(-1px);
+}
+
+/* positions (giống sơ đồ) */
+.node--root {
+  left: 50%;
+  top: 70px;
+  transform: translateX(-50%);
+}
+
+.node--left {
+  left: 180px;
+  top: 230px;
+}
+
+.node--right {
+  right: 180px;
+  top: 230px;
+}
+
+.node--mid1 {
+  left: 50%;
+  top: 330px;
+  transform: translateX(-50%);
+}
+
+.node--mid2 {
+  left: 50%;
+  top: 430px;
+  transform: translateX(-50%);
+}
+
+/* lines */
+.line {
+  position: absolute;
+  background: rgba(19, 42, 42, 0.35);
+}
+
+/* từ root đi xuống */
+.line--downRoot {
+  width: 2px;
+  height: 70px;
+  left: 50%;
+  top: 140px;
+}
+
+/* đường ngang chia 2 nhánh */
+.line--split {
+  height: 2px;
+  width: 520px;
+  left: 50%;
+  top: 210px;
+  transform: translateX(-50%);
+}
+
+/* đường dọc xuống từ node "Cập nhật hồ sơ" đến "Gửi xác thực Lab" */
+.line--downEdit {
+  width: 2px;
+  height: 70px;
+  right: 180px;
+  top: 300px;
+}
+
+/* đường dọc từ "Gửi xác thực Lab" xuống "Trạng thái xác thực" */
+.line--downVerify {
+  width: 2px;
+  height: 60px;
+  left: 50%;
+  top: 390px;
+}
+
+/* bottom */
+.flow__bottom {
+  margin-top: 14px;
+}
+
+.flow__back {
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-weight: 900;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.78);
+  color: rgba(19, 42, 42, 0.78);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* responsive: xuống 1 cột khi màn nhỏ */
+@media (max-width: 900px) {
+  .flow__canvas {
+    height: 640px;
+  }
+
+  .node--left {
+    left: 50%;
+    top: 230px;
+    transform: translateX(-50%);
+  }
+
+  .node--right {
+    left: 50%;
+    right: auto;
+    top: 310px;
+    transform: translateX(-50%);
+  }
+
+  .line--split {
+    display: none;
+  }
+
+  .line--downEdit {
+    left: 50%;
+    right: auto;
+    top: 370px;
+  }
+
+  .node--mid1 {
+    top: 410px;
+  }
+
+  .line--downVerify {
+    top: 470px;
+  }
+
+  .node--mid2 {
+    top: 520px;
+  }
+}

@@ -1,0 +1,281 @@
+:root {
+  --primary: #2aa9a1;
+  --primary-dark: #2a7f7a;
+  --danger: #f26d6d;
+  --danger-soft: #ffe7e7;
+  --border: #d9e7e6;
+  --text: #243332;
+  --shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
+  --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-header {
+  padding: 18px 0 8px;
+}
+
+.dashboard-header-inner {
+  width: 980px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 18px; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dashboard-brand {
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 34px;
+  letter-spacing: 0.2px;
+}
+
+.lock-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  min-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.lock-title {
+  color: var(--primary-dark);
+  font-size: 44px;
+  font-weight: 900;
+  margin: 0 0 22px;
+  letter-spacing: 0.2px;
+}
+
+.lock-card {
+  width: 980px;
+  max-width: 1100px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.lock-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f3fbfa;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin: 6px 6px 14px;
+}
+
+.lock-search-ico {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.lock-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.lock-search input::placeholder {
+  color: #94aaa8;
+  font-weight: 700;
+}
+
+.lock-table {
+  background: #fff;
+  border: 1px solid #e3eeee;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.lock-head,
+.lock-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+.lock-head {
+  padding: 14px 18px;
+  background: #f6fbfb;
+  font-weight: 900;
+  color: #2c3b3a;
+  font-size: 14px;
+}
+
+.lock-head > div {
+  display: flex;
+  align-items: center;
+}
+
+.lock-head > div:nth-child(1),
+.lock-head > div:nth-child(2),
+.lock-head > div:nth-child(3) {
+  justify-content: center;
+}
+
+.lock-row {
+  padding: 16px 18px;
+  border-top: 1px solid #eef6f6;
+  font-size: 15px;
+}
+
+.lock-name {
+  font-weight: 900;
+  color: #203030;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lock-status,
+.lock-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lock-pill {
+  border-radius: 999px;
+  padding: 10px 18px;
+  min-width: 220px;
+  font-weight: 900;
+  font-size: 13px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.lock-pill.ok {
+  background: var(--primary);
+  color: #fff;
+}
+
+.lock-pill.bad {
+  background: var(--danger-soft);
+  color: #e24d4d;
+  border: 1px solid #ffcaca;
+}
+
+.lock-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 10px 18px;
+  width: 220px;
+  max-width: 100%;
+  font-weight: 900;
+  font-size: 13px;
+  cursor: pointer;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  white-space: nowrap;
+}
+
+.lock-btn.danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.lock-btn.safe {
+  background: var(--primary);
+  color: #fff;
+}
+
+.lock-btn:hover {
+  filter: brightness(0.98);
+}
+
+@media (max-width: 1100px) {
+  .lock-card {
+    width: min(900px, 92%);
+  }
+
+  .lock-title {
+    font-size: 36px;
+  }
+
+  .lock-pill {
+    min-width: 180px;
+  }
+
+  .lock-btn {
+    width: 180px;
+  }
+
+  .dashboard-header-inner {
+    width: min(900px, 92%);
+  }
+
+  .dashboard-brand {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 720px) {
+  .lock-wrap {
+    min-height: auto;
+    padding: 20px 14px 96px;
+  }
+
+  .lock-title {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .lock-card {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .lock-head,
+  .lock-row {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .lock-head {
+    padding: 12px 12px;
+    font-size: 13px;
+  }
+
+  .lock-row {
+    padding: 12px 12px;
+    font-size: 14px;
+  }
+
+  .lock-pill {
+    min-width: 130px;
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  .lock-btn {
+    width: 130px;
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  .dashboard-header-inner {
+    width: 100%;
+    padding: 0 12px;
+  }
+
+  .dashboard-brand {
+    font-size: 26px;
+  }
+}

@@ -4,22 +4,51 @@ import { useState } from "react";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
+  // const handleLogin = (e: React.FormEvent) => {
+  //   e.preventDefault();
 
-    if (!email || !password) {
-      alert("Vui lòng nhập đầy đủ Email và Password");
+  //   if (!email || !password) {
+  //     alert("Vui lòng nhập đầy đủ Email và Password");
+  //     return;
+  //   }
+
+  //   localStorage.setItem("isLogin", "true");
+
+  //   // ✅ về trang sau đăng nhập
+  //   navigate("/landing", { replace: true });
+  // };
+  const handleLogin = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const formData = new URLSearchParams();
+  formData.append("username", username);
+  formData.append("password", password);
+
+  try {
+    const res = await fetch("http://127.0.0.1:8000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formData.toString(),
+    });
+
+    if (!res.ok) {
+      alert("Sai tài khoản hoặc mật khẩu");
       return;
     }
 
-    localStorage.setItem("isLogin", "true");
+    const data = await res.json();
+    localStorage.setItem("token", data.access_token);
 
-    // ✅ về trang sau đăng nhập
     navigate("/landing", { replace: true });
-  };
+  } catch (err) {
+    alert("Không kết nối được server");
+  }
+};
 
   return (
     <div className="loginWrap">
@@ -39,12 +68,14 @@ export default function Login() {
         >
           <div className="field">
             <span className="icon">📧</span>
+            
             <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-              type="email"
-            />
+                  value={username}
+                  onChange={(e) => setusername(e.target.value)}
+                  placeholder="Tên đăng nhập"
+                    type="text"
+                    />  
+
           </div>
 
           <div className="field">

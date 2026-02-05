@@ -1,0 +1,173 @@
+:root {
+  --primary: #2aa9a1;
+  --primary-dark: #2a7f7a;
+  --danger: #f26d6d;
+  --border: #d9e7e6;
+  --text: #243332;
+  --shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
+  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-header {
+  width: 100%;
+  background: transparent;
+  padding-top: 24px;
+}
+
+.perm-head {
+  width: 900px;             
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;           
+  box-sizing: border-box;
+}
+
+.dashboard-brand {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.perm-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  min-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.perm-title {
+  margin: 0 0 18px;
+  color: var(--primary-dark);
+  font-size: 38px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.perm-card {
+  width: 900px;
+  max-width: 980px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.perm-tools {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 6px 12px;
+}
+
+.perm-search {
+  flex: 1;
+  max-width: 460px;
+  display: flex;
+  gap: 8px;
+  background: #f3fbfa;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.perm-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-weight: 700;
+}
+
+.perm-add {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 900;
+}
+
+.perm-table {
+  border: 1px solid #e3eeee;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.perm-head-row,
+.perm-row {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 12px;
+  padding: 12px 14px;
+  align-items: center;
+}
+
+.perm-head-row {
+  background: #f6fbfb;
+  font-weight: 900;
+}
+
+.perm-row {
+  border-top: 1px solid #eef6f6;
+}
+
+.perm-name {
+  font-weight: 900;
+}
+
+.perm-pill {
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 900;
+  border: none;
+}
+
+.perm-pill.ok {
+  background: var(--primary);
+  color: #fff;
+}
+
+.perm-pill.lock {
+  background: var(--danger);
+  color: #fff;
+}
+
+.perm-pager {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 0;
+}
+
+@media (max-width: 1100px) {
+  .perm-card,
+  .perm-head {
+    width: min(860px, 92%);
+  }
+}
+
+@media (max-width: 720px) {
+  .dashboard-header {
+    padding-top: 16px;
+  }
+
+  .perm-head {
+    width: 100%;
+    padding: 0 14px;
+  }
+
+  .perm-wrap {
+    padding: 20px 14px 96px;
+  }
+
+  .perm-title {
+    font-size: 26px;
+  }
+
+  .perm-card {
+    width: 100%;
+  }
+}
