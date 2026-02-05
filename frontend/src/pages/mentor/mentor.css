@@ -1,0 +1,430 @@
+/* ====== CONTAINER ====== */
+.mentor-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 48px;
+
+  background: linear-gradient(180deg, #e6f7f5, #ffffff);
+  min-height: 100vh;
+
+  border-radius: 28px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+}
+
+.mentor-container h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* ====== HEADER ====== */
+.mentor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+/* ====== GRID CHA ====== */
+.mentor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 36px;
+}
+
+/* ====== CARD CHA ====== */
+.mentor-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  text-align: center;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+  border: 2px solid transparent;
+}
+
+.mentor-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 1px rgba(44, 177, 161, 0.15);
+  pointer-events: none;
+}
+
+.mentor-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: #2cb1a1;
+  box-shadow: 0 20px 40px rgba(44, 177, 161, 0.2);
+}
+
+.mentor-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #2cb1a1;
+}
+
+.mentor-card p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ====== KHUNG NHÁNH CON ====== */
+.mentor-detail {
+  margin-top: 48px;
+  padding: 36px;
+
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+  animation: fadeUp 0.35s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mentor-detail h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #111827;
+}
+
+/* ====== GRID NHÁNH ====== */
+.mentor-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+/* ====== CARD NHÁNH CON ====== */
+.mentor-detail-card {
+  background: linear-gradient(135deg, #f0fdfa, #ffffff);
+  border-radius: 18px;
+  padding: 22px;
+
+  font-size: 15px;
+  font-weight: 600;
+  color: #065f46;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  border: 1px solid #ccfbf1;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+}
+
+.mentor-detail-card:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, #2cb1a1, #22c55e);
+  color: #ffffff;
+  box-shadow: 0 16px 36px rgba(34, 197, 94, 0.35);
+}
+
+/* ====== NỘI DUNG CHỨC NĂNG ====== */
+.mentor-task-content {
+  margin-top: 28px;
+  padding: 28px;
+
+  border-radius: 18px;
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.mentor-task-content h3 {
+  margin-bottom: 16px;
+  color: #2cb1a1;
+  font-size: 18px;
+}
+
+/* ====== BUTTON TRONG CONTENT ====== */
+.mentor-task-content button {
+  margin-top: 16px;
+  padding: 10px 18px;
+
+  border-radius: 10px;
+  border: none;
+
+  background: #2cb1a1;
+  color: #ffffff;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mentor-task-content button:hover {
+  background: #22a395;
+}
+
+/* ====== NÚT HEADER ====== */
+.btn-home {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: none;
+
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-logout {
+  padding: 10px 20px;
+  border-radius: 14px;
+  border: none;
+
+  background: #bfe9e6;
+  color: #006d68;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ====== FOOTER ====== */
+.mentor-footer {
+  margin-top: 48px;
+  padding: 24px 32px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #ffffff;
+  border-top: 2px solid #e5e7eb;
+  border-radius: 0 0 24px 24px;
+
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* ====== NÚT FOOTER ====== */
+.footer-btn {
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 600;
+
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  transition: all 0.2s ease;
+}
+
+.footer-btn.home {
+  background: #ffffff;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+}
+
+.footer-btn.home:hover {
+  background: #f3f4f6;
+}
+
+.footer-btn.logout {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.footer-btn.logout:hover {
+  background: #dc2626;
+}
+/* ================== RESET NHẸ ================== */
+* {
+  box-sizing: border-box;
+}
+
+/* ================== NHÁNH CHA ================== */
+.mentor-detail,
+.mentor-task-content,
+.section,
+.panel {
+  width: 100%;
+  background: #f1f5f9;
+  padding: 24px;
+  border-radius: 16px;
+}
+
+/* ================== NHÁNH CON CẤP 1 (CARD) ================== */
+.mentor-detail-card,
+.card,
+.sub-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+}
+
+/* ================== GRID CHO NHÁNH CON ================== */
+.mentor-detail-grid,
+.grid,
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ================== TIÊU ĐỀ ================== */
+h2,
+h3,
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+/* ================== NHÁNH CON CẤP 2 (KHUNG TRẮNG TRONG CARD) ================== */
+.sub-section,
+.inner-box,
+.white-box {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+/* ================== TABLE – ÁP DỤNG CHUNG ================== */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+/* header */
+thead th {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  padding: 10px 14px;
+}
+
+/* row */
+tbody tr {
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+/* bo góc row */
+tbody tr td:first-child {
+  border-radius: 12px 0 0 12px;
+}
+tbody tr td:last-child {
+  border-radius: 0 12px 12px 0;
+}
+
+/* cell */
+td {
+  padding: 12px 14px;
+  font-size: 15px;
+  color: #0f172a;
+  vertical-align: middle;
+}
+
+/* ================== CỘT ACTION ================== */
+td:last-child {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ================== BUTTON – ÁP DỤNG MỌI NHÁNH ================== */
+button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  background: #e5e7eb;
+  color: #0f172a;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* nút chính */
+button.primary {
+  background: #2cb1a1;
+  color: #ffffff;
+}
+
+/* nút phụ */
+button.secondary {
+  background: #e5e7eb;
+  color: #334155;
+}
+
+/* ================== INPUT / SELECT ================== */
+input,
+select {
+  width: 100%;
+  padding: 8px 12px;
+
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+
+  font-size: 14px;
+}
+
+/* ================== CANH CHỮ ĐỀU & DỄ NHÌN ================== */
+td,
+th {
+  white-space: nowrap;
+}
+
+/* ================== HOVER ROW ================== */
+tbody tr:hover {
+  background: #ecfeff;
+}
+
+/* ================== MOBILE GỌN GÀNG ================== */
+@media (max-width: 768px) {
+  table,
+  thead,
+  tbody,
+  tr,
+  td,
+  th {
+    display: block;
+  }
+
+  tbody tr {
+    padding: 12px;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  td:last-child {
+    justify-content: flex-start;
+  }
+}
+button + button {
+  margin-left: 12px;
+}
