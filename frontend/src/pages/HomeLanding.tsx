@@ -7,8 +7,7 @@ export default function HomeLanding() {
   const goTalent = () => navigate("/talent");
 const goSystemAdmin = () => navigate("/talent/settings");
 const goLabAdmin = () => navigate("/admin");
-
-
+const goMentor = () => navigate("/mentor");
 
   return (
     <div className="hl">
@@ -39,9 +38,10 @@ const goLabAdmin = () => navigate("/admin");
             Doanh nghiệp <span className="hlCaret">▾</span>
           </button>
 
-          <button type="button" className="hlNavBtn">
+          <button type="button" className="hlNavBtn" onClick={goMentor}>
             Mentor
           </button>
+
 
           {/* ✅ BẤM QUA TALENT */}
           <button type="button" className="hlNavBtn" onClick={goTalent}>

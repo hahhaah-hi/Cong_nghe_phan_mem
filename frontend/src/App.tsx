@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Forgot from "./pages/Forgot";
+import Mentor from "./pages/mentor/mentor";
 
 import LADashboard from "./pages/LabAdmin/LADashboard";
 import Enterprises from "./pages/LabAdmin/entities/Enterprises";
@@ -228,6 +229,8 @@ export default function App() {
 
 
 
+
+<Route path="/mentor" element={<Mentor />} />
 
       {/*  - LUÔN để cuối */}
       <Route path="*" element={<Navigate to="/" replace />} />
