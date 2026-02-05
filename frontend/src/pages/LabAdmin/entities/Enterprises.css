@@ -1,0 +1,81 @@
+.enterprise-container {
+  padding: 40px;
+}
+
+.enterprise-container h2 {
+  margin-bottom: 20px;
+  color: #1ca7a6;
+}
+
+.enterprise-search input {
+  width: 300px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.enterprise-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.enterprise-table th,
+.enterprise-table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.enterprise-table th {
+  background: #f7f9f9;
+  font-weight: 600;
+}
+
+.enterprise-table tr:hover {
+  background: #f2fefe;
+}
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge.Đã\ duyệt {
+  background: #e6f8f7;
+  color: #1ca7a6;
+}
+
+.badge.Chờ\ duyệt {
+  background: #fff4e5;
+  color: #ff9800;
+}
+
+.badge.Từ\ chối {
+  background: #ffe5e5;
+  color: #e53935;
+}
+
+.btn-view,
+.btn-lock {
+  padding: 6px 10px;
+  margin-right: 6px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-view {
+  background: #1ca7a6;
+  color: white;
+}
+
+.btn-lock {
+  background: #eee;
+}

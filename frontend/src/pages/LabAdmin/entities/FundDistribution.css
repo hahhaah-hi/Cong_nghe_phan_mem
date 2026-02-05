@@ -1,0 +1,31 @@
+.fund-container {
+  margin-top: 40px;
+}
+
+.fund-container h2 {
+  color: #1f9e93;
+  margin-bottom: 20px;
+}
+
+.fund-card {
+  margin-bottom: 20px;
+}
+
+.fund-card input {
+  padding: 8px;
+  width: 250px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.fund-result {
+  display: flex;
+  gap: 20px;
+}
+
+.fund-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  flex: 1;
+}

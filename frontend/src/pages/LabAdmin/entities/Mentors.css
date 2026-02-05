@@ -1,0 +1,70 @@
+.mentor-page {
+  padding: 40px;
+}
+
+.mentor-page h2 {
+  color: #1f9e93;
+  margin-bottom: 20px;
+}
+
+.mentor-search {
+  padding: 10px;
+  width: 280px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.mentor-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mentor-table th {
+  background: #f4f6f8;
+  padding: 14px;
+  text-align: left;
+}
+
+.mentor-table td {
+  padding: 14px;
+  border-top: 1px solid #eee;
+}
+
+.status-active {
+  background: #e6f7f5;
+  color: #1f9e93;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.status-locked {
+  background: #f2f2f2;
+  color: #888;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 6px;
+  font-size: 13px;
+}
+
+.btn-view {
+  background: #1f9e93;
+  color: white;
+}
+
+.btn-lock {
+  background: #e0e0e0;
+  color: #333;
+}

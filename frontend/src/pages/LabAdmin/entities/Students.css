@@ -1,0 +1,80 @@
+.admin-page {
+  padding: 40px;
+}
+
+.admin-page h2 {
+  color: #1f9e93;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px 15px;
+  width: 250px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 15px;
+  text-align: left;
+}
+
+.admin-table thead {
+  background: #f4f4f4;
+}
+
+.admin-table tr {
+  border-bottom: 1px solid #eee;
+}
+
+/* STATUS */
+.status {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.status.Đangthamgia {
+  background: #e0f7f5;
+  color: #1f9e93;
+}
+
+.status.Hoànthành {
+  background: #e6f9ec;
+  color: #22c55e;
+}
+
+.status.Tạmkhóa {
+  background: #ffeaea;
+  color: #ef4444;
+}
+
+/* BUTTON */
+.btn {
+  padding: 6px 12px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-view {
+  background: #1f9e93;
+  color: white;
+}
+
+.btn-lock {
+  background: #e5e7eb;
+}

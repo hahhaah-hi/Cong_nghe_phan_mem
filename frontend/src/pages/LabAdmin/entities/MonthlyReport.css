@@ -1,0 +1,28 @@
+.report-container {
+  padding: 40px;
+}
+
+.report-container h2 {
+  color: #1f9e93;
+  margin-bottom: 30px;
+}
+
+.report-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.report-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.report-card h3 {
+  font-size: 28px;
+  color: #1f9e93;
+  margin-bottom: 10px;
+}

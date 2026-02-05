@@ -1,0 +1,72 @@
+.notify-container {
+  padding: 40px;
+}
+
+.notify-container h2 {
+  color: #1f9e93;
+  margin-bottom: 20px;
+}
+
+.notify-table {
+  width: 100%;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+.notify-table th,
+.notify-table td {
+  padding: 14px;
+  text-align: left;
+}
+
+.notify-table thead {
+  background: #f5f7f7;
+}
+
+.notify-table tr:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+/* Result status */
+.status.Đãduyệt {
+  background: #e6f7f5;
+  color: #1f9e93;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.status.Từchối {
+  background: #fde2e2;
+  color: #e53935;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* Sent state */
+.sent {
+  color: #1f9e93;
+  font-weight: 500;
+}
+
+.pending {
+  color: #b45309;
+  font-weight: 500;
+}
+
+/* Button */
+.btn-send {
+  background: #1f9e93;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.done-text {
+  color: #888;
+}
