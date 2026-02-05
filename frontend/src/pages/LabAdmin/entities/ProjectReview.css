@@ -1,0 +1,62 @@
+.review-container {
+  margin-top: 40px;
+}
+
+.review-container h2 {
+  color: #1f9e93;
+  margin-bottom: 20px;
+}
+
+.review-table {
+  width: 100%;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+.review-table th {
+  background: #f2f4f6;
+  padding: 14px;
+  text-align: left;
+}
+
+.review-table td {
+  padding: 14px;
+  border-top: 1px solid #eee;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  background: #e6f4f3;
+  color: #1f9e93;
+}
+
+.status.Đã\ duyệt {
+  background: #e6f4f3;
+  color: #1f9e93;
+}
+
+.status.Từ\ chối {
+  background: #fdeaea;
+  color: #e74c3c;
+}
+
+.btn {
+  padding: 6px 12px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-view {
+  background: #1f9e93;
+  color: white;
+}
+
+.btn-lock {
+  background: #e0e0e0;
+}

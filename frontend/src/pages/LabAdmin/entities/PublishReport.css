@@ -1,0 +1,31 @@
+.publish-container {
+  padding: 40px;
+}
+
+.publish-container h2 {
+  color: #1f9e93;
+  margin-bottom: 20px;
+}
+
+.publish-box {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-publish {
+  background: #1f9e93;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.published-text {
+  color: #1f9e93;
+  font-weight: 600;
+}

@@ -1,0 +1,80 @@
+.projects-container {
+  padding: 40px;
+}
+
+.projects-container h2 {
+  color: #1f9e93;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  width: 280px;
+}
+
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.projects-table th,
+.projects-table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.projects-table th {
+  background-color: #f3f6f6;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.status.Đang\ triển\ khai {
+  background-color: #d4f4ef;
+  color: #1f9e93;
+}
+
+.status.Hoàn\ thành {
+  background-color: #e0e7ff;
+  color: #4f46e5;
+}
+
+.status.Chờ\ duyệt {
+  background-color: #fff3cd;
+  color: #b45309;
+}
+
+.btn {
+  padding: 6px 10px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn.view {
+    background-color: #2f9e90;
+    color: white;
+}
+
+.btn.approve {
+    background-color: #dff3f1;
+    color: #2f9e90;
+}
+
+.btn.reject {
+    background-color: #f3f3f3;
+    color: #666;
+}

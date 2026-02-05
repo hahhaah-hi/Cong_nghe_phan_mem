@@ -1,0 +1,85 @@
+.change-container {
+  padding: 40px;
+}
+
+.change-container h2 {
+  color: #1f9e93;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px 14px;
+  width: 280px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.change-table {
+  width: 100%;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+.change-table th,
+.change-table td {
+  padding: 14px;
+  text-align: left;
+}
+
+.change-table thead {
+  background: #f5f7f7;
+}
+
+.change-table tr:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+/* Status */
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.status.Chờxửlý {
+  background: #fff3cd;
+  color: #b45309;
+}
+
+.status.Đãduyệt {
+  background: #e6f7f5;
+  color: #1f9e93;
+}
+
+.status.Từchối {
+  background: #fde2e2;
+  color: #e53935;
+}
+
+/* Buttons */
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+  font-size: 13px;
+}
+
+.btn.view {
+  background: #1f9e93;
+  color: white;
+}
+
+.btn.approve {
+  background: #e6f7f5;
+  color: #1f9e93;
+}
+
+.btn.reject {
+  background: #fde2e2;
+  color: #e53935;
+}

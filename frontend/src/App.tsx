@@ -5,8 +5,23 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Forgot from "./pages/Forgot";
 
+import LADashboard from "./pages/LabAdmin/LADashboard";
+import Enterprises from "./pages/LabAdmin/entities/Enterprises";
 import TalentPortal from "./pages/talentdashboard/TalentPortal";
 import StudentProfile from "./pages/talentdashboard/StudentProfile";
+import AdminProjects from "./pages/LabAdmin/entities/Projects";
+import Mentors from "./pages/LabAdmin/entities/Mentors";
+import Students from "./pages/LabAdmin/entities/Students";
+import ProjectReview from "./pages/LabAdmin/entities/ProjectReview";
+import FundDistribution from "./pages/LabAdmin/entities/FundDistribution";
+import ChangeRequests from "./pages/LabAdmin/entities/ChangeRequests";
+import NotifyResult from "./pages/LabAdmin/entities/NotifyResult";
+import MonthlyReport from "./pages/LabAdmin/entities/MonthlyReport";
+import PublishReport from "./pages/LabAdmin/entities/PublishReport";
+
+
+
+
 
 import Projects from "./pages/talentdashboard/Projects";
 import JoinRequest from "./pages/talentdashboard/JoinRequest";
@@ -196,6 +211,22 @@ export default function App() {
       <Route path="/talent/templates/upload" element={<UploadTemplate />} />
       <Route path="/talent/templates/update" element={<UpdateTemplate />} />
       <Route path="/talent/templates/delete" element={<DeleteTemplate />} />
+
+      <Route path="/admin" element={<LADashboard />} />
+      <Route path="/admin/enterprises" element={<Enterprises />} />
+      <Route path="/admin/projects" element={<AdminProjects />} />
+      <Route path="/admin/mentors" element={<Mentors />} />
+      <Route path="/admin/students" element={<Students />} />
+      <Route path="/admin/project-review" element={<ProjectReview />} />
+      <Route path="/admin/fund-distribution" element={<FundDistribution />} />
+      <Route path="/admin/change-requests" element={<ChangeRequests />} />
+      <Route path="/admin/notify-result" element={<NotifyResult />} />
+      <Route path="/admin/report/monthly" element={<MonthlyReport />} />
+      <Route path="/admin/report/publish" element={<PublishReport />} />
+
+      
+
+
 
 
       {/*  - LUÔN để cuối */}
