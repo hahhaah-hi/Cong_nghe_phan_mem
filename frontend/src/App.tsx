@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Forgot from "./pages/Forgot";
+import Mentor from "./pages/mentor/mentor";
 
 import TalentPortal from "./pages/talentdashboard/TalentPortal";
 import StudentProfile from "./pages/talentdashboard/StudentProfile";
@@ -197,6 +198,8 @@ export default function App() {
       <Route path="/talent/templates/update" element={<UpdateTemplate />} />
       <Route path="/talent/templates/delete" element={<DeleteTemplate />} />
 
+
+<Route path="/mentor" element={<Mentor />} />
 
       {/*  - LUÔN để cuối */}
       <Route path="*" element={<Navigate to="/" replace />} />
